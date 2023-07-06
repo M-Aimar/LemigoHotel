@@ -1,6 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
+import Cardv2 from "../components/Cardv2.astro";
+import {menuData} from '../constants/menu_data'
+const data = Object.entries(menuData);
+// const data = [
+// {link: "https://firebasestorage.googleapis.com/v0/b/pdf-uploader-efebf.appspot.com/o/files%2FhvMuKpJlkTMLzaH0WDCLfps3RbL2%2FOriental%20Menu.pdf?alt=media&token=c1e4d3db-e2d3-4f1f-8d9d-fb0ccc00ab69", title: 'CONTINENTAL MENU', imageSrc: '/variety_small.jpg'},
+// {link: "https://firebasestorage.googleapis.com/v0/b/pdf-uploader-efebf.appspot.com/o/files%2FhvMuKpJlkTMLzaH0WDCLfps3RbL2%2FVIP%20Drink%20Menu.pdf?alt=media&token=d9a8aa8b-ebea-4ccf-a269-7d4f4d2a61d0", title: 'VIP DRINKS MENU', imageSrc: '/drinksvip.jpg'},
+// {link: "https://firebasestorage.googleapis.com/v0/b/pdf-uploader-efebf.appspot.com/o/files%2FhvMuKpJlkTMLzaH0WDCLfps3RbL2%2FDrink%20Menu.pdf?alt=media&token=92388818-4e30-4342-af20-25a1892ad172", title: 'DRINKS MENU', imageSrc: '/drink.jpg'},
+// {link: "https://firebasestorage.googleapis.com/v0/b/pdf-uploader-efebf.appspot.com/o/files%2FhvMuKpJlkTMLzaH0WDCLfps3RbL2%2FChinese%20Menu.pdf?alt=media&token=63233e34-5aa6-45d0-baf1-aefaded8a4a2", title: 'CHINESE FOOD MENU', imageSrc: '/chinese.jpg'},
+// {link: "https://firebasestorage.googleapis.com/v0/b/pdf-uploader-efebf.appspot.com/o/files%2FhvMuKpJlkTMLzaH0WDCLfps3RbL2%2FIndian%20Menu.pdf?alt=media&token=6bc7e2b8-1ad7-41f8-87dd-120690c1a082", title: 'INDIAN FOOD MENU', imageSrc: '/indian.jpg'},
+// {link: "https://firebasestorage.googleapis.com/v0/b/pdf-uploader-efebf.appspot.com/o/files%2FhvMuKpJlkTMLzaH0WDCLfps3RbL2%2FRoom%20Service.pdf?alt=media&token=a5e15b45-ba5d-4a17-8eac-a11d2badc4ce", title: 'ROOM SERVICE MENU', imageSrc: '/roomservice.png'},
+// {link: "#", title: 'OTHER (COMING SOON)', imageSrc: '/other.jpg'},
+// ];
 function handleClick(){}
 ---
 
@@ -15,71 +26,7 @@ function handleClick(){}
 	</section>
 	<main class="flex flex-col items-center justify-center bg-232323">
 		<section class="flex items-center justify-center flex-col gap-12 md:grid md:grid-cols-2 lg:grid-cols-3">
-			<a href="https://firebasestorage.googleapis.com/v0/b/pdf-uploader-efebf.appspot.com/o/files%2FhvMuKpJlkTMLzaH0WDCLfps3RbL2%2FOriental%20Menu.pdf?alt=media&token=c1e4d3db-e2d3-4f1f-8d9d-fb0ccc00ab69" class="block" target="_blank">
-				<div class="bg-slate-200 shadow-md rounded-md hover:scale-110 duration-300 transition ease-in-out delay-100">
-				
-					<img src="/variety_small.jpg" alt="oriental food" 
-					class="h-[200px] w-[300px] object-cover rounded-t-md  "
-					/>
-					<p class="text-center font-medium py-3 text-9a8438 font-Raleway">CONTINENTAL MENU</p>
-				</div>
-			</a>
-
-			<a href="https://firebasestorage.googleapis.com/v0/b/pdf-uploader-efebf.appspot.com/o/files%2FhvMuKpJlkTMLzaH0WDCLfps3RbL2%2FVIP%20Drink%20Menu.pdf?alt=media&token=d9a8aa8b-ebea-4ccf-a269-7d4f4d2a61d0" class="block" target="_blank">
-				<div class="bg-slate-200 shadow-md rounded-md hover:scale-110 duration-300 transition ease-in-out delay-100">
-				
-					<img src="/drinksvip.jpg" alt="vip drinks menu" 
-					class="h-[200px] w-[300px] object-cover rounded-t-md  "
-					/>
-					<p class="text-center font-medium py-3 text-9a8438 font-Raleway">VIP DRINKS MENU</p>
-				</div>
-			</a>
-			
-			<a href="https://firebasestorage.googleapis.com/v0/b/pdf-uploader-efebf.appspot.com/o/files%2FhvMuKpJlkTMLzaH0WDCLfps3RbL2%2FDrink%20Menu.pdf?alt=media&token=92388818-4e30-4342-af20-25a1892ad172" class="block" target="_blank">
-				<div class="bg-slate-200 shadow-md rounded-md hover:scale-110 duration-300 transition ease-in-out delay-100">
-				
-					<img src="/drink.jpg" alt="regular drinks" 
-					class="h-[200px] w-[300px] object-cover rounded-t-md  "
-					/>
-					<p class="text-center font-medium py-3 text-9a8438 font-Raleway">DRINKS MENU</p>
-				</div>
-			</a>
-			
-			<a href="https://firebasestorage.googleapis.com/v0/b/pdf-uploader-efebf.appspot.com/o/files%2FhvMuKpJlkTMLzaH0WDCLfps3RbL2%2FChinese%20Menu.pdf?alt=media&token=63233e34-5aa6-45d0-baf1-aefaded8a4a2" class="block" target="_blank">
-				<div class="bg-slate-200 shadow-md rounded-md hover:scale-110 duration-300 transition ease-in-out delay-100 mb-8">
-				
-					<img src="/chinese.jpg" alt="Chinese food" 
-					class="h-[200px] w-[300px] object-cover rounded-t-md  "
-					/>
-					<p class="text-center font-medium py-3 text-9a8438 font-Raleway">CHINESE FOOD MENU</p>
-				</div>
-			</a>
-			<a href="https://firebasestorage.googleapis.com/v0/b/pdf-uploader-efebf.appspot.com/o/files%2FhvMuKpJlkTMLzaH0WDCLfps3RbL2%2FIndian%20Menu.pdf?alt=media&token=6bc7e2b8-1ad7-41f8-87dd-120690c1a082" class="block" target="_blank">
-				<div  class="bg-slate-200 shadow-md rounded-md hover:scale-110 duration-300 transition ease-in-out delay-100 mb-8">
-					<img src="/indian.jpg" alt="Indian food" class="h-[200px] w-[300px] object-cover rounded-t-md "/>
-					<p class="text-center font-medium py-3 text-9a8438 font-Raleway">INDIAN FOOD MENU</p>
-				</div>
-			</a>
-
-			<a href="https://firebasestorage.googleapis.com/v0/b/pdf-uploader-efebf.appspot.com/o/files%2FhvMuKpJlkTMLzaH0WDCLfps3RbL2%2FRoom%20Service.pdf?alt=media&token=a5e15b45-ba5d-4a17-8eac-a11d2badc4ce" class="block" target="_blank">
-				<div class="bg-slate-200 shadow-md rounded-md hover:scale-110 duration-300 transition ease-in-out delay-100 mb-8">
-				
-					<img src="/roomservice.png" alt="room serivce" 
-					class="h-[200px] w-[300px] object-cover rounded-t-md  "
-					/>
-					<p class="text-center font-medium py-3 text-9a8438 font-Raleway">ROOM SERVICE MENU</p>
-				</div>
-			</a>
-
-			<a href="#" class="block" target="_blank">
-				<div class="bg-slate-200 shadow-md rounded-md hover:scale-110 duration-300 transition ease-in-out delay-100 mb-8">
-				
-					<img src="/other.jpg" alt="other" 
-					class="h-[200px] w-[300px] object-cover rounded-t-md  "
-					/>
-					<p class="text-center font-medium py-3 text-9a8438 font-Raleway">OTHER (COMING SOON)</p>
-				</div>
-			</a>
+			{data.map((item)=><Cardv2 link={item[1].link} imageSrc={item[1].imageSrc} title={item[0]} />)}
 		</section>
 	</main>
 </Layout>
