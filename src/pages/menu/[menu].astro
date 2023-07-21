@@ -2,58 +2,66 @@
 import { menuData } from "../../constants/menu_data";
 import { slugify } from "../../js/utils";
 import Layout from "../../layouts/Layout.astro";
-
+import ImagesList from "../../components/ImagesList.jsx"
 export async function getStaticPaths() {
-    return [
-        {
-            params: { menu: "CONTINENTAL MENU" },
-            props: {},
-        },
-        {
-            params: { menu: "VIP DRINKS MENU" },
-            props: {},
-        },
-        {
-            params: { menu: "DRINKS MENU" },
-            props: {},
-        },
-        {
-            params: { menu: "CHINESE FOOD MENU" },
-            props: {},
-        },
-        {
-            params: { menu: "INDIAN FOOD MENU" },
-            props: {},
-        },
-        {
-            params: { menu: "ROOM SERVICE MENU" },
-            props: {},
-        },
-        {
-            params: { menu: "OTHER (COMING SOON)" },
-            props: {},
-        },
-    ];
+  return [
+    {
+      params: { menu: "CONTINENTAL MENU" },
+      props: {},
+    },
+    {
+      params: { menu: "VIP DRINKS MENU" },
+      props: {},
+    },
+    {
+      params: { menu: "DRINKS MENU" },
+      props: {},
+    },
+    {
+      params: { menu: "CHINESE FOOD MENU" },
+      props: {},
+    },
+    {
+      params: { menu: "INDIAN FOOD MENU" },
+      props: {},
+    },
+    {
+      params: { menu: "ROOM SERVICE MENU" },
+      props: {},
+    },
+    {
+      params: { menu: "OTHER (COMING SOON)" },
+      props: {},
+    },
+  ];
 }
 const { menu } = Astro.params;
 
 const linkObj = menuData[menu as keyof typeof menuData];
 const link = linkObj.link;
+const pages = linkObj.pages;
+const paddedPages = pages.toString().padStart(2, "0");
 console.log(link);
 ---
 
 <Layout title="Lemigo Hotel Menus" background-color="#232323">
-    <div class="pdf-container">
+
+  <ImagesList prefix={link} pages={pages} client:load />
+  <!-- <div id="pdfContainer" class="text-7xl font-bold text-white">
+    {link}
+  </div> -->
+
+  <!-- <div class="pdf-container">
         <object class="pdf-container" data={link} type="application/pdf">
             <h1>Unable to open PDF. Please download it using the link below:</h1>
             <a href={link}>Download PDF</a>
         </object>
-    </div>
+    </div> -->
 </Layout>
 
 <style>
-    .pdf-container{
-        width: 100%;
-        height: 100vh;
-    }
+  .pdf-container {
+    width: 100%;
+    height: 100vh;
+  }
 </style>
