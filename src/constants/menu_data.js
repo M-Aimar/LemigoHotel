@@ -23,7 +23,7 @@ export const menuData = {
   },
   "DRINKS MENU": {
     link: "drink_menu",
-    pages: 10,
+    pages: 12,
     title: "DRINKS MENU",
     imageSrc: "/drink.jpg",
   },
